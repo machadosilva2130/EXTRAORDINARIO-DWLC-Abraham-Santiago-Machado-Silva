@@ -12,10 +12,19 @@ const productoRoutes = require('./routes/productoRoutes');
 
 const app = express();
 
+const categoriaRoutes = require('./routes/categoriaRoutes');
+
+const authRoutes =
+require('./routes/authRoutes');
+
 app.use(express.json());
 
 app.use('/usuarios', usuarioRoutes);
 app.use('/productos', productoRoutes);
+
+app.use('/categorias', categoriaRoutes);
+
+app.use('/auth', authRoutes);
 
 // Relaciones
 Producto.belongsTo(Categoria);
